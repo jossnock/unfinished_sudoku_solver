@@ -18,5 +18,5 @@ Steps:
  - 
  - 
  - 
- - 
+ - Add killer sudoku support
 """
