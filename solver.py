@@ -21,28 +21,104 @@ def fill_board():
         j = 0
         while j < 9:
             # lists the current row and column of the digit to be inputted (+1 so 9 is the max):
-            digit = input("Row: {} Column: {}\n".format(i+1, j+1))
+            cell = input("Row: {} Column: {}\n".format(i+1, j+1))
             #checks if integer:
             try:
-                int(digit)
+                int(cell)
             except ValueError:
                 print("the number must be an integer, try again")
             else: 
-                digit = int(digit)
-                if digit == -1:
+                cell = int(cell)
+                if cell == -1:
                     j -= 1 # j becomes previous j so the user can re-try their input
                 else:
-                    if ((digit >= 0) and (digit <=9)): # if digit is 1-9 inclusive
-                        if digit == 0: # if cell is unknown, assigns it its pencil values:
+                    if ((cell >= 0) and (cell <=9)): # if digit is 1-9 inclusive
+                        if cell == 0: # if cell is unknown, assigns it its pencil values:
                             board[i][j] = (1,2,3,4,5,6,7,8,9) 
                         else:
-                            board[i][j] = digit
+                            board[i][j] = cell
                         j += 1
                     else:
                         print("the number must be between 1 and 9 inclusive, try again")
         i += 1
     sudoku_print(board)
     return board
+
+
+def solve_sudoku(board):
+    sudoku_solved = False
+    while sudoku_solved == False:
+        for i in range(9):
+            for j in range(9):
+                current_cell = board[i][j]
+                if type(current_cell) != type(('','')): # if cell's value is known
+                    continue
+                else:
+                    current_cell = check_cell(current_cell)
+
+
+
+
+def check_cell(cell): 
+    """
+    Todo:
+    - Finish functions (if possible don't make them functions)
+    - Add a notes generator
+    """
+    def only_one_of_each_number(cell):
+        pass
+    
+    def last_free_cell(cell):
+        pass
+        # rows:
+        if 
+        # columns:
+
+        # 3x3 cell block:
+
+    def last_remaining_cell(cell):
+        pass
+
+    #last_possible_number:
+    if len(cell) == 1:
+        return int(cell)
+
+    def obvious_single(cell):
+        pass
+
+    def obvious_pair(cell):
+        pass
+
+    def obvious_triple(cell):
+        pass
+
+    def hidden_single(cell):
+        pass
+
+    def hidden_pair(cell):
+        pass
+
+    def hidden_triple(cell):
+        pass
+
+    def pointing_pair(cell):
+        pass
+
+    def pointing_triple(cell):
+        pass
+
+    def x_wing(cell):
+        pass
+
+    def y_wing(cell):
+        pass
+
+    def swordfish(cell):
+        pass
+
+
+
+
 
 
 #fill_board()
